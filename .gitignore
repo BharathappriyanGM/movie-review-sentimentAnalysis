@@ -1,0 +1,29 @@
+# Ignore Python cache and environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+*.env
+
+# Ignore machine learning models
+models/
+
+# Ignore node_modules (frontend dependencies)
+node_modules/
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore datasets
+data/Dataset.csv
+data/processed_reviews.csv
+
+# Ignore build outputs
+frontend/build/
+
+# Ignore temporary/system files
+.DS_Store
+Thumbs.db
