@@ -2,7 +2,7 @@
 
 1. Project Overview:
 
-High-level description of what the project does (e.g., "Movie Review Analyzer leverages AI to analyze user-submitted reviews for sentiment and themes").
+Movie Review Analyzer is a web application that uses an ensemble of machine learning models (Logistic Regression, LSTM, and Transformer) to analyze movie reviews for sentiment and thematic content. The system provides sentiment predictions with confidence scores and identifies movie genres/themes from review text.
 
 2. Tech Stack:
 
@@ -17,8 +17,8 @@ MovieReviewProject/
 │
 ├── backend/               # Backend folder
 ├── frontend/              # Frontend folder
-├── data/                  # Dataset folder
-├── logs/                  # Logs folder
+├── nltk_data/             # NLTK language data
+├── logs/                  # Logs folder (created at runtime)
 ├── tests/                 # Test cases for backend and frontend
 ├── .gitignore             # Git ignored files
 ├── docker-compose.yml     # Docker setup for full-stack deployment
@@ -50,4 +50,9 @@ cd frontend
 npm start
 
 8. Testing:
-Command to run all backend and frontend tests.
+Backend tests:
+pytest tests/test_backend.py
+
+Frontend tests:
+cd frontend
+npm test

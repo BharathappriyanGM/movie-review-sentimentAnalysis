@@ -1,0 +1,196 @@
+.navbar {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .navbar.scrolled {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 70px;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 2rem;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .logo-icon {
+    font-size: 2.2rem;
+    color: #6200ea;
+    margin-right: 0.5rem;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #212121;
+  }
+  
+  .accent {
+    background: linear-gradient(to right, #6200ea, #b388ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #212121;
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    height: 80px;
+    position: relative;
+  }
+  
+  .navbar.scrolled .nav-item {
+    height: 70px;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    padding: 0 1.25rem;
+    color: #424242;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .nav-link:hover {
+    color: #6200ea;
+  }
+  
+  .nav-link.active {
+    color: #6200ea;
+    font-weight: 600;
+  }
+  
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(to right, #6200ea, #b388ff);
+    border-radius: 1.5px;
+  }
+  
+  .login-button {
+    background: linear-gradient(to right, #6200ea, #7c4dff);
+    color: white !important;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 50px;
+    margin-left: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .login-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(98, 0, 234, 0.3);
+  }
+  
+  @media screen and (max-width: 960px) {
+    .navbar-container {
+      padding: 0 1.5rem;
+    }
+    
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: calc(100vh - 80px);
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      opacity: 0;
+      transition: all 0.5s ease;
+      background-color: white;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar.scrolled .nav-menu {
+      top: 70px;
+      height: calc(100vh - 70px);
+    }
+  
+    .nav-menu.active {
+      left: 0;
+      opacity: 1;
+      z-index: 1;
+    }
+  
+    .nav-item {
+      height: 60px;
+      width: 100%;
+      border-bottom: 1px solid #f1f1f1;
+    }
+    
+    .navbar.scrolled .nav-item {
+      height: 60px;
+    }
+  
+    .nav-link {
+      text-align: center;
+      padding: 1.5rem;
+      width: 100%;
+      display: table;
+      font-size: 1.1rem;
+    }
+    
+    .nav-link.active::after {
+      display: none;
+    }
+  
+    .login-button {
+      background: linear-gradient(to right, #6200ea, #7c4dff);
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 50px;
+      padding: 0.8rem !important;
+      margin-top: 1rem;
+    }
+  
+    .menu-icon {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }

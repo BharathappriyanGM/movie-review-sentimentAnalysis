@@ -69,8 +69,11 @@ Before running this project, ensure you have:
    git clone <your-repo-link>
    cd MovieReviewProject/backend
 2. Install dependencies:
+    ```bash
     pip install -r requirements.txt
 3. Update the MongoDB connection URI in database/mongodb.py:
+    ```bash
     MONGO_URI = "mongodb+srv://<username>:<password>@cluster-url.mongodb.net/"
 4. Run the server:
+    ```bash
     uvicorn main:app --reload

@@ -1,6 +1,6 @@
 from transformers import pipeline
 import numpy as np
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from keras.preprocessing.sequence import pad_sequences
 
 
 def transformer_predict(review):
@@ -24,7 +24,7 @@ def predict_lstm(review, tokenizer, lstm_model):
     """
     Predict sentiment using the LSTM model.
     """
-    from tensorflow.keras.preprocessing.sequence import pad_sequences
+    from keras.preprocessing.sequence import pad_sequences
 
     # Tokenize and pad the review
     sequence = tokenizer.texts_to_sequences([review])
