@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 import nltk
-nltk.data.path.append(r'D:\Engineering Files\FYP\Movie Review Project\nltk_data')
+nltk.data.path.append(r'D:\Engineering Files\FYP\GIT\movie-review-sentimentAnalysis\nltk_data')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -112,7 +112,7 @@ def visualize_metrics(y_test, y_pred):
 # Main Function
 if __name__ == "__main__":
     # Path to your dataset
-    dataset_path = r"D:\Engineering Files\FYP\Movie Review Project\Dataset.csv"
+    dataset_path = r"D:\Engineering Files\FYP\GIT\movie-review-sentimentAnalysis\data\Dataset.csv"
 
     # Load dataset
     df = load_dataset(dataset_path)

@@ -6,7 +6,11 @@ import joblib
 import tensorflow as tf
 from transformers import pipeline
 from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+# from keras.preprocessing.sequence import pad_sequences
+# from tensorflow.keras.preprocessing.sequence import pad_sequences
+# from tensorflow.keras.utils import pad_sequences
+# from keras_preprocessing.sequence import pad_sequences
+from keras.utils import pad_sequences
 import pickle
 import numpy as np
 import json
