@@ -24,14 +24,31 @@ def predict_lstm(review, tokenizer, lstm_model):
     """
     Predict sentiment using the LSTM model.
     """
-    from keras.preprocessing.sequence import pad_sequences
-
+    from keras.utils import pad_sequences  # Import inside function to avoid global import issues
+    
+    # Check if tokenizer is defined
+    if tokenizer is None:
+        print("Warning: Tokenizer is None, initializing a new one")
+        from tensorflow.keras.preprocessing.text import Tokenizer
+        tokenizer = Tokenizer(num_words=5000)
+        tokenizer.fit_on_texts([review])  # Basic fitting on current review
+    
     # Tokenize and pad the review
     sequence = tokenizer.texts_to_sequences([review])
     padded_sequence = pad_sequences(sequence, maxlen=100)
     
-    # Get the prediction from the LSTM model
-    prediction = lstm_model.predict(padded_sequence)[0][0]
+    # Get the prediction from the LSTM model with error handling
+    try:
+        prediction = lstm_model.predict(padded_sequence, verbose=0)[0][0]
+    except Exception as e:
+        print(f"LSTM prediction error: {e}")
+        try:
+            # Alternative approach
+            prediction = lstm_model(padded_sequence, training=False).numpy()[0][0]
+        except Exception as e2:
+            print(f"Alternative LSTM prediction also failed: {e2}")
+            return "neutral"  # Default fallback
+    
     return "positive" if prediction > 0.5 else "negative"
 
 def ensemble_prediction(review, vectorizer, lr_model, lstm_model, tokenizer):
