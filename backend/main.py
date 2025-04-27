@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Union
 import joblib
 import tensorflow as tf
 from transformers import pipeline
@@ -65,11 +65,12 @@ class ReviewRequest(BaseModel):
     review_text: str
     user_id: Optional[str] = None
 
+# Updated to accept both string and float values
 class SentimentResponse(BaseModel):
     review_text: str
     sentiment: str
     confidence: float
-    model_breakdown: Dict[str, Dict[str, float]]
+    model_breakdown: Dict[str, Dict[str, Union[str, float]]]
     themes: List[str]
 
 @app.get("/")
